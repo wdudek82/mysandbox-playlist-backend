@@ -1,0 +1,23 @@
+MySandbox Playlist Backend
+==========================
+
+*
+*
+*
+
+Project's roadmap
+-----------------
+
+1. Videos
+    - List, View, Create, Delete
+    - Viewer Permissions:
+        - membership, owner, anyone
+        
+2. Albums (?)
+
+3. Categories / Tags
+
+4. Search
+
+5. Analytics
+    - Recommendations based on habits
