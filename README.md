@@ -16,6 +16,9 @@ Project's roadmap
 2. Albums (?)
 
 3. Categories / Tags
+    - List, View, Create, Delete
+    - Add videos
+    - Featured
 
 4. Search
 

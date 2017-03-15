@@ -4,6 +4,8 @@ verify_ssl = true
 
 [packages]
 Django = "*"
+ipython = "*"
+django-behaviors = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"
