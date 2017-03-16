@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render
 from django.views.generic import CreateView, DetailView, ListView, UpdateView, DeleteView
 
@@ -15,12 +16,14 @@ class VideoDetailView(DetailView):
 class VideoListView(ListView):
     queryset = Video.objects.all()
     template_name = 'videos/video_list.html'
-    context = {
-        'videos': queryset
-    }
 
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_name, self.context)
+    def get_context_data(self, **kwargs):
+        context = super(VideoListView, self).get_context_data(**kwargs)
+        context['random'] = random.randint(500, 1000)
+        return context
+
+    # def get(self, request, *args, **kwargs):
+    #     return render(request, self.template_name, self.context)
 
 
 

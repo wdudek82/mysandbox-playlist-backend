@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% include 'defaults/head.html' %}
+      <title>{% block title %}Video{% endblock title %}</title>
+  </head>
+  <body>
+    <h1>
+        {% block header %}{% endblock header %}
+    </h1>
+
+    {% block content %}{% endblock content %}
+
+    {% include 'defaults/scripts.html' %}
+  </body>
+</html>

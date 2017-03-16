@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Video | List</title>
-</head>
-<body>
-    <ul>
-    {% for video in videos %}
-        <li>{{ video.id }}. {{ video.title }}, {{ video.embed_code }}</li>
-    {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'videos/base.html' %}
+{% load staticfiles %}
+
+{% block title %}{{ block.super }} | List{% endblock title %}
+
+{% block header %}
+Hello, {% if user.is_authenticated %}{{ user }}{% else %}World{% endif %}!
+{% endblock header %}
+
+{% block content %}
+<ul>
+{% for video in video_list %}
+    <li>{{ video.id }}. {{ video.title }}, {{ video.embed_code }}</li>
+{% endfor %}
+</ul>
+{% endblock content %}
