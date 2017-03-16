@@ -2,10 +2,11 @@
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 
+[dev-packages]
+django-debug-toolbar = "*"
+
 [packages]
 Django = "*"
 ipython = "*"
 django-behaviors = "*"
-
-[dev-packages]
-django-debug-toolbar = "*"
+pdir2 = "*"
