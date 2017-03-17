@@ -4,13 +4,18 @@
 {% block title %}{{ block.super }} | List{% endblock title %}
 
 {% block header %}
-Hello, {% if user.is_authenticated %}{{ user }}{% else %}World{% endif %}!
+Video: List
 {% endblock header %}
 
 {% block content %}
-<ul>
-{% for video in video_list %}
-    <li>{{ video.id }}. {{ video.title }}, {{ video.embed_code }}</li>
-{% endfor %}
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            {% for video in video_list %}
+                <div>{{ video.id }}. {{ video.title }}</div>
+                <div style="max-width: 500px;">{{ video.embed_code|safe }}</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock content %}
