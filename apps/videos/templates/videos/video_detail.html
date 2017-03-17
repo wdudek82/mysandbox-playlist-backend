@@ -1,0 +1,16 @@
+{% extends 'videos/base.html' %}
+{% load staticfiles %}
+
+{% block title %}{{ block.super }} | List{% endblock title %}
+
+{% block header %}
+Video {{ video.id }}
+{% endblock header %}
+
+{% block content %}
+    <div>{{ video.title }}<div>
+    <div style="width: 500px;">{{ video.embed_code|safe }}</div>
+    <p>{{ video.created }}</p>
+    <p>{{ video.changed }}</p>
+    <p>{{ video.modified }}</p>
+{% endblock content %}

@@ -12,10 +12,13 @@ class VideoCreateView(CreateView):
 class VideoDetailView(DetailView):
     queryset = Video.objects.all()
 
+    def get_context_data(self, **kwargs):
+        context = super(VideoDetailView, self).get_context_data(**kwargs)
+        return context
+
 
 class VideoListView(ListView):
     queryset = Video.objects.all()
-    template_name = 'videos/video_list.html'
 
     def get_context_data(self, **kwargs):
         context = super(VideoListView, self).get_context_data(**kwargs)
@@ -23,12 +26,20 @@ class VideoListView(ListView):
         return context
 
     # def get(self, request, *args, **kwargs):
-    #     return render(request, self.template_name, self.context)
+    #     print(request.__dict__)
+    #     return render(request, self.template_name, '')
 
+    # def post(self, request, *args, **kwargs):
+    #     print(request.__dict__)
+    #     return render(request, self.template_name, '')
 
 
 class VideoUpdateView(UpdateView):
     queryset = Video.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(VideoDetailView, self).get_context_data(**kwargs)
+        return context
 
 
 class VideoDeleteView(DeleteView):
