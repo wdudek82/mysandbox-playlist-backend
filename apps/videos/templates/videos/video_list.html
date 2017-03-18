@@ -4,18 +4,22 @@
 {% block title %}{{ block.super }} | List{% endblock title %}
 
 {% block header %}
-Video: List
+    Video: List
+    <a href="{% url 'video:create' %}" class="btn btn-success">Add</a>
 {% endblock header %}
 
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-sm-6">
-            {% for video in video_list %}
-                <div>{{ video.id }}. {{ video.title }}</div>
-                <div style="max-width: 500px;">{{ video.embed_code|safe }}</div>
-            {% endfor %}
-        </div>
+        {% for video in video_list %}
+            <div class="col-xs-4">
+                {{ video.id }}. {{ video.title }}
+                {{ video.embed_code|safe }}
+                <a href="{{ video.get_absolute_url }}" class="btn btn-default btn-sm">View</a>
+                <a href="{% url 'video:update' video.slug %}" class="btn btn-warning btn-sm">Update</a>
+                <a href="{% url 'video:delete' video.slug %}" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock content %}

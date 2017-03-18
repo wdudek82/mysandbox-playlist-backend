@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
@@ -13,6 +14,9 @@ class Video(Timestamped):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("video:detail", kwargs={'slug': self.slug})
 
 
 @receiver(signal=pre_save, sender=Video)

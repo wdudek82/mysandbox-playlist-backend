@@ -1,0 +1,15 @@
+{% extends 'videos/base.html' %}
+
+{% block title %}{{ block.super }} | Create{% endblock title %}
+
+{% block header %}
+Video: Create
+{% endblock header %}
+{% block content %}
+    <form method="POST" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+        <a href="{% url 'video:list' %}" class="btn btn-default btn-sm">Cancel</a>
+    </form>
+{% endblock content %}

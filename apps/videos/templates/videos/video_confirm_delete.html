@@ -1,0 +1,16 @@
+{% extends 'videos/base.html' %}
+
+{% block title %}{{ block.super }} Delete{% endblock title %}
+
+{% block header %}
+Video: Delete
+{% endblock header %}
+
+{% block content %}
+    <form method="POST" action=".">
+        {% csrf_token %}
+        <p>Are you sure you want to delete <strong>{{ video.title }}</strong>?</p>
+        <input type="submit" value="Yes" class="btn btn-danger btn-sm">
+        <a href="{% url 'video:list' %}" class="btn btn-default btn-sm">Cancel</a>
+    </form>
+{% endblock content %}

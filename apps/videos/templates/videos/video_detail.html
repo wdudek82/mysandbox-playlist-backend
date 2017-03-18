@@ -1,5 +1,4 @@
 {% extends 'videos/base.html' %}
-{% load staticfiles %}
 
 {% block title %}{{ block.super }} | List{% endblock title %}
 
@@ -8,9 +7,12 @@ Video {{ video.id }}
 {% endblock header %}
 
 {% block content %}
-    <div>{{ video.title }}<div>
+    <p>{{ video.title }}</p>
     <div style="width: 500px;">{{ video.embed_code|safe }}</div>
     <p>{{ video.created }}</p>
     <p>{{ video.changed }}</p>
     <p>{{ video.modified }}</p>
+    <a href="{% url 'video:list' %}" class="btn btn-default btn-sm">Home</a>
+    <a href="{% url 'video:update' video.slug %}" class="btn btn-warning btn-sm">Update</a>
+    <a href="{% url 'video:delete' video.slug %}" class="btn btn-danger btn-sm">Delete</a>
 {% endblock content %}

@@ -1,12 +1,15 @@
 import random
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic import CreateView, DetailView, ListView, UpdateView, DeleteView
 
 from .models import Video
+from .forms import VideoForm
 
 
 class VideoCreateView(CreateView):
-    queryset = Video.objects.all()
+    model = Video
+    form_class = VideoForm
+    # success_url = ''
 
 
 class VideoDetailView(DetailView):
@@ -25,22 +28,12 @@ class VideoListView(ListView):
         context['random'] = random.randint(500, 1000)
         return context
 
-    # def get(self, request, *args, **kwargs):
-    #     print(request.__dict__)
-    #     return render(request, self.template_name, '')
-
-    # def post(self, request, *args, **kwargs):
-    #     print(request.__dict__)
-    #     return render(request, self.template_name, '')
-
 
 class VideoUpdateView(UpdateView):
     queryset = Video.objects.all()
-
-    def get_context_data(self, **kwargs):
-        context = super(VideoDetailView, self).get_context_data(**kwargs)
-        return context
+    form_class = VideoForm
 
 
 class VideoDeleteView(DeleteView):
     queryset = Video.objects.all()
+    success_url = '/video/'
