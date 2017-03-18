@@ -10,7 +10,7 @@ Project's roadmap
 
 1. Videos
     + List, View, Create, Delete -- DONE
-    - Search
+    + Search -- DONE
     - Viewer Permissions:
         - membership, owner, anyone
         

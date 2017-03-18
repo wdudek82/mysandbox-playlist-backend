@@ -1,4 +1,3 @@
-import random
 from django.shortcuts import redirect, render
 from django.views.generic import CreateView, DetailView, ListView, UpdateView, DeleteView
 
@@ -9,7 +8,6 @@ from .forms import VideoForm
 class VideoCreateView(CreateView):
     model = Video
     form_class = VideoForm
-    # success_url = ''
 
 
 class VideoDetailView(DetailView):
@@ -21,12 +19,12 @@ class VideoDetailView(DetailView):
 
 
 class VideoListView(ListView):
-    queryset = Video.objects.all()
-
-    def get_context_data(self, **kwargs):
-        context = super(VideoListView, self).get_context_data(**kwargs)
-        context['random'] = random.randint(500, 1000)
-        return context
+    def get_queryset(self):
+        queryset = Video.objects.all()
+        searched_title = self.request.GET.get('q')
+        if searched_title:
+            queryset = queryset.filter(title__icontains=searched_title)
+        return queryset
 
 
 class VideoUpdateView(UpdateView):

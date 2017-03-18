@@ -9,17 +9,21 @@
 {% endblock header %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        {% for video in video_list %}
-            <div class="col-xs-4">
-                {{ video.id }}. {{ video.title }}
-                {{ video.embed_code|safe }}
-                <a href="{{ video.get_absolute_url }}" class="btn btn-default btn-sm">View</a>
-                <a href="{% url 'video:update' video.slug %}" class="btn btn-warning btn-sm">Update</a>
-                <a href="{% url 'video:delete' video.slug %}" class="btn btn-danger btn-sm">Delete</a>
-            </div>
-        {% endfor %}
+    <div class="container">
+        {% include 'videos/snippets/video_search_form.html' with request=request %}
+
+        <div class="row">
+            {% for video in video_list %}
+                <div class="col-xs-4">
+                    {{ video.id }}. {{ video.title }}
+                    {{ video.embed_code|safe }}
+                    <a href="{{ video.get_absolute_url }}" class="btn btn-default btn-sm">View</a>
+                    <a href="{% url 'video:update' video.slug %}" class="btn btn-warning btn-sm">Update</a>
+                    <a href="{% url 'video:delete' video.slug %}" class="btn btn-danger btn-sm">Delete</a>
+                </div>
+            {% empty %}
+                <div class="col-xs-4">No videos found!</div>
+            {% endfor %}
+        </div>
     </div>
-</div>
 {% endblock content %}
