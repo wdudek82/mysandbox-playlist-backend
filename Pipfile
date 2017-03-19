@@ -6,7 +6,7 @@ verify_ssl = true
 django-debug-toolbar = "*"
 
 [packages]
-Django = "*"
 ipython = "*"
 django-behaviors = "*"
 pdir2 = "*"
+Django = "*"
