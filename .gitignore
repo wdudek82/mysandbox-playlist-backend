@@ -3,3 +3,9 @@ local/
 /assets/
 /backups/
 *.py[co]
+.Makefile.swp
+
+apps/__pycache__/
+apps/videos/__pycache__/
+apps/videos/migrations/__pycache__/
+conf/__pycache__/

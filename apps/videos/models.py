@@ -8,8 +8,10 @@ from behaviors.behaviors import Timestamped
 
 class Video(Timestamped):
     title = models.CharField(max_length=255)
-    slug = models.SlugField(blank=True)
+    slug = models.SlugField(max_length=255, blank=True)
     embed_code = models.TextField()
+    free = models.BooleanField(default=True)
+    member_required = models.BooleanField(default=False)
     created_at = models.DateTimeField
 
     def __str__(self):

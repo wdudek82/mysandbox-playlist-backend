@@ -2,20 +2,17 @@ from django.shortcuts import redirect, render
 from django.views.generic import CreateView, DetailView, ListView, UpdateView, DeleteView
 
 from .models import Video
+from .mixins import MemberRequiredMixin, StaffMemberRequiredMixin
 from .forms import VideoForm
 
 
-class VideoCreateView(CreateView):
+class VideoCreateView(StaffMemberRequiredMixin, CreateView):
     model = Video
     form_class = VideoForm
 
 
-class VideoDetailView(DetailView):
+class VideoDetailView(MemberRequiredMixin, DetailView):
     queryset = Video.objects.all()
-
-    def get_context_data(self, **kwargs):
-        context = super(VideoDetailView, self).get_context_data(**kwargs)
-        return context
 
 
 class VideoListView(ListView):
@@ -27,11 +24,11 @@ class VideoListView(ListView):
         return queryset
 
 
-class VideoUpdateView(UpdateView):
+class VideoUpdateView(StaffMemberRequiredMixin, UpdateView):
     queryset = Video.objects.all()
     form_class = VideoForm
 
 
-class VideoDeleteView(DeleteView):
+class VideoDeleteView(StaffMemberRequiredMixin, DeleteView):
     queryset = Video.objects.all()
     success_url = '/video/'

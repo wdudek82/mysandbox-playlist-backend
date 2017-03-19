@@ -1,19 +1,23 @@
-MySandbox Playlist Backend
-==========================
+# MySandbox Playlist Backend
 
-Env
----
+## Setup
+
+### Env
 1. pip install pipenv
 2. pipenv --python python3.6
 3. pipenv instlall [--dev]
 4. pipenv shell
 
-Project's roadmap
------------------
+### Project
+5. make dirs - creates project's dirs
+6. ./manage.py migrate
+7. ./manage.py runserver
 
+
+## Project's roadmap
 1. Videos -> Albums
-    + List, View, Create, Delete -- DONE
-    + Search -- DONE
+    - [DONE] List, View, Create, Delete
+    - [DONE] Search
     - Viewer Permissions:
         - membership, owner, anyone
         
