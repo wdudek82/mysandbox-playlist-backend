@@ -3,4 +3,7 @@ usage:
 	@echo "   dirs - create project's directories"
 
 dirs:
-	@mkdir assets backups local
+	@mkdir assets
+	@mkdir -p assets/static
+	@mkdir backups
+	@mkdir local

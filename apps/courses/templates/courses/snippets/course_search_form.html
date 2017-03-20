@@ -1,10 +1,10 @@
 <div class="row">
     <div class="col-sm-4">
         <form method="GET" action=".">
-            <input type="text" value="{{ request.GET.q }}" name="q" placeholder="searched video">
+            <input type="text" value="{{ request.GET.q }}" name="q" placeholder="searched course">
         </form>
         {% if request.GET.q %}
-            <h3>You searched for: <b>{{ request.GET.q }}</b></h3>
+            <h3>You serached for: <b>{{ request.GET.q }}</b></h3>
         {% endif %}
     </div>
 </div>

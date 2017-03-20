@@ -8,7 +8,7 @@ class VideoAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'slug', 'embed_code', 'free', 'member_required', 'created', 'changed', 'modified']
     list_display_links = ['title']
     readonly_fields = ['created', 'changed', 'modified']
-    search_fields = ['title', 'embeded_code']
+    search_fields = ['title', 'embed_code']
     list_filter = ['created', 'modified']
     prepopulated_fields = {'slug': ('title',)}
 

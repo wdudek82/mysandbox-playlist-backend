@@ -1,9 +1,8 @@
-from django.shortcuts import redirect, render
 from django.views.generic import CreateView, DetailView, ListView, UpdateView, DeleteView
 
-from .models import Video
-from .mixins import MemberRequiredMixin, StaffMemberRequiredMixin
+from apps.utils.mixins import MemberRequiredMixin, StaffMemberRequiredMixin
 from .forms import VideoForm
+from .models import Video
 
 
 class VideoCreateView(StaffMemberRequiredMixin, CreateView):
@@ -18,9 +17,9 @@ class VideoDetailView(MemberRequiredMixin, DetailView):
 class VideoListView(ListView):
     def get_queryset(self):
         queryset = Video.objects.all()
-        searched_title = self.request.GET.get('q')
-        if searched_title:
-            queryset = queryset.filter(title__icontains=searched_title)
+        searched_video = self.request.GET.get('q')
+        if searched_video:
+            queryset = queryset.filter(title__icontains=searched_video)
         return queryset
 
 

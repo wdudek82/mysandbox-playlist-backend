@@ -1,11 +1,11 @@
-{% extends 'videos/base.html' %}
-{% load staticfiles %}
+{% extends 'base.html' %}
 
-{% block title %}{{ block.super }} | List{% endblock title %}
+
+{% block title %}{{ block.super }} | Videos{% endblock title %}
 
 {% block header %}
-    Video: List
-    <a href="{% url 'video:create' %}" class="btn btn-success">Add</a>
+    Videos
+    <a href="{% url 'video:create' %}" class="btn btn-success">Add Video</a>
 {% endblock header %}
 
 {% block content %}
