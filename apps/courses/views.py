@@ -10,6 +10,14 @@ class CourseCreateView(CreateView):
     model = Course
     form_class = CourseForm
 
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+        instance.user = self.request.user
+        instance.save()
+        # int_passed = form.cleaned_data.get('number')
+        # Course.objects.create(number=int_passed)
+        return super(CourseCreateView, self).form_valid(form)
+
 
 class CourseListView(ListView):
     def get_queryset(self):
@@ -21,5 +29,15 @@ class CourseListView(ListView):
         return queryset
 
 
-class CourseDetailView(DetailView):
+class CourseDetailView(MemberRequiredMixin, DetailView):
     queryset = Course.objects.all()
+
+
+class CourseUpdateView(StaffMemberRequiredMixin, UpdateView):
+    queryset = Course.objects.all()
+    form_class = CourseForm
+
+
+class CourseDeleteView(StaffMemberRequiredMixin, DeleteView):
+    queryset = Course.objects.all()
+    success_url = '/course/'

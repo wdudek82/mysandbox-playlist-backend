@@ -3,6 +3,8 @@ from .models import Course
 
 
 class CourseForm(forms.ModelForm):
+    # number = forms.IntegerField()
+
     class Meta:
         model = Course
-        fields = ['user', 'title', 'description', 'price']
+        fields = ['title', 'description', 'price']
