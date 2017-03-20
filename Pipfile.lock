@@ -61,8 +61,8 @@
             "version": "==16.8"
         },
         "pdir2": {
-            "hash": "sha256:babd59ba8ba8b86015cda17c10283c843b20ab2c0ecb2d4e81082eda27be47f4",
-            "version": "==0.1.0"
+            "hash": "sha256:59f0313a6cd34def9da18e4f8ea24532bd07c44a1daa48efd03030832fe83ff5",
+            "version": "==0.1.1"
         },
         "pexpect": {
             "hash": "sha256:f853b52afaf3b064d29854771e2db509ef80392509bde2dd7a6ecf2dfc3f0018",

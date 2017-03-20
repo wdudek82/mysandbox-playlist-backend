@@ -9,5 +9,6 @@ apps/videos/__pycache__/
 apps/videos/migrations/__pycache__/
 conf/__pycache__/
 
-/assets/static_root/bower_components/
-
+/assets/static/bower_components/
+/assets/static_root/
+/assets/media_root/

@@ -13,15 +13,19 @@
 6. ./manage.py migrate
 7. ./manage.py runserver
 
+### additional static files
+8. cd assets/static
+9. bower install
+
 
 ## Project's roadmap
-1. Videos -> Albums
+1. Videos
     - [DONE] List, View, Create, Delete
     - [DONE] Search
     - Viewer Permissions:
         - membership, owner, anyone
         
-2. Songs
+2. Courses / Series
 
 3. Categories / Tags
     - List, View, Create, Delete
