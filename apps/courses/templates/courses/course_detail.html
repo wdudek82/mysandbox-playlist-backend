@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}
+    {{ block.super }} | Detail
+{% endblock title %}
+
+{% block header %}
+    Course {{ course.id }}
+{% endblock header %}
+
+{% block content %}
+    <p>{{ course.user }}</p>
+    <p>{{ course.title }}</p>
+    <p>{{ course.description }}</p>
+    <p>{{ course.created }}</p>
+    <p>{{ course.changed }}</p>
+    <p>{{ course.modified }}</p>
+    <p><a href="{% url 'course:list' %}" class="btn btn-default btn-xs">Home</a></p>
+{#    <p><a href="{% url 'course:update' %}" class="btn btn-warning btn-xs">Home</a></p>#}
+{#    <p><a href="{% url 'course:delete' %}" class="btn btn-danger btn-xs">Home</a></p>#}
+{% endblock content %}

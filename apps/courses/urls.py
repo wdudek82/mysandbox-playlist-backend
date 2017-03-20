@@ -1,8 +1,9 @@
 from django.conf.urls import url
-from .views import CourseCreateView, CourseListView
+from .views import CourseCreateView, CourseListView, CourseDetailView
 
 
 urlpatterns = [
     url(r'^$', CourseListView.as_view(), name='list'),
     url(r'^create/$', CourseCreateView.as_view(), name='create'),
+    url(r'^(?P<slug>[\w-]+)/$', CourseDetailView.as_view(), name='detail'),
 ]

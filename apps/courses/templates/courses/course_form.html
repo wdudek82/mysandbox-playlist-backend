@@ -9,7 +9,7 @@
     <form method="POST" action=".">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Create">
-        <a href="{% url 'course:list' %}">Cancel</a>
+        <input type="submit" value="Create" class="btn btn-primary btn-xs">
+        <a href="{% url 'course:list' %}" class="btn btn-default btn-xs">Cancel</a>
     </form>
 {% endblock content %}

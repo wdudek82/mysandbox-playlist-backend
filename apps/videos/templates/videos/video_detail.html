@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ block.super }} | List{% endblock title %}
+{% block title %}
+    {{ block.super }} | List
+{% endblock title %}
 
 {% block header %}
-Video {{ video.id }}
+    Video {{ video.id }}
 {% endblock header %}
 
 {% block content %}
@@ -12,7 +14,7 @@ Video {{ video.id }}
     <p>{{ video.created }}</p>
     <p>{{ video.changed }}</p>
     <p>{{ video.modified }}</p>
-    <a href="{% url 'video:list' %}" class="btn btn-default btn-sm">Home</a>
-    <a href="{% url 'video:update' video.slug %}" class="btn btn-warning btn-sm">Update</a>
-    <a href="{% url 'video:delete' video.slug %}" class="btn btn-danger btn-sm">Delete</a>
+    <a href="{% url 'video:list' %}" class="btn btn-default btn-xs">Home</a>
+    <a href="{% url 'video:update' video.slug %}" class="btn btn-warning btn-xs">Update</a>
+    <a href="{% url 'video:delete' video.slug %}" class="btn btn-danger btn-xs">Delete</a>
 {% endblock content %}

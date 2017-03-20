@@ -5,7 +5,7 @@
 
 {% block header %}
     Courses
-    <a href="{% url 'course:create' %}" class="btn btn-success">Add Course</a>
+    <a href="{% url 'course:create' %}" class="btn btn-success btn-xs">Add Course</a>
 {% endblock header %}
 
 {% block content %}
@@ -17,6 +17,9 @@
                 <div class="col-xs-4">
                     <h2>{{ course.id }}. {{ course.title }}</h2>
                     <p>{{ course.description }}</p>
+                    <p>
+                        <a href="{% url 'course:detail' course.slug %}" class="btn btn-default btn-xs">View</a>
+                    </p>
                 </div>
             {% empty %}
                 <div class="col-xs-4">No videos found!</div>

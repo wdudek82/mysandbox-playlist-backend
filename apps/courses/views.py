@@ -1,5 +1,5 @@
 from django.db.models import Q
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
 from .forms import CourseForm
 from .models import Course
@@ -12,10 +12,14 @@ class CourseCreateView(CreateView):
 
 
 class CourseListView(ListView):
-    def get_queryset(self):git
+    def get_queryset(self):
         queryset = Course.objects.all()
         searched_course = self.request.GET.get('q')
         if searched_course:
             queryset = queryset.filter(
                 Q(title__icontains=searched_course) | Q(description__icontains=searched_course))
         return queryset
+
+
+class CourseDetailView(DetailView):
+    queryset = Course.objects.all()
