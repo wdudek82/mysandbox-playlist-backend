@@ -10,8 +10,9 @@
 
 ### Project
 5. make dirs - creates project's dirs
-6. ./manage.py migrate
+6. pipenv run python manage.py migrate (after activating pipenv simply: ./manage.py [command]
 7. ./manage.py runserver
+8. loading fixtures: pipenv run python manage.py loaddata
 
 ### additional static files
 8. cd assets/static

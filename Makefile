@@ -10,10 +10,19 @@ dirs:
 
 fixtures:
 	@echo " .: Creating fixtures :."
-	@echo "videos_video"
-	@pipenv run python manage.py dumpdata videos -o apps/videos/fixtures/video.fixtures.json
+	@echo "* courses_course" 
+	@pipenv run python manage.py dumpdata courses -o apps/courses/fixtures/courses.fixture.json --indent 2
 	@echo ""
-	@echo "courses_course" 
-	@pipenv run python manage.py dumpdata courses -o apps/courses/fixtures/courses.fixtures.json
+	@echo "* videos_video"
+	@pipenv run python manage.py dumpdata videos -o apps/videos/fixtures/videos.fixture.json --indent 2
 	@echo ""
-	@echo "Fixtures created!"    
+	@echo "Fixtures created!"
+
+load_all_data:
+	@echo " .: Loading all fixtures :."
+	@echo ""
+	@echo "* courses:"
+	@pipenv run python manage.py loaddata --ignorenonexistent apps/courses/fixtures/courses.fixture.json
+	@echo ""
+	@echo "* videos:" 
+	@pipenv run python manage.py loaddata --ignorenonexistent apps/videos/fixtures/videos.fixture.json 

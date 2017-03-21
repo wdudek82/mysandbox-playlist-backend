@@ -1,1 +1,106 @@
-[{"model": "videos.video", "pk": 1, "fields": {"created": "2017-03-15T22:22:27.561Z", "modified": "2017-03-18T15:11:34.271Z", "title": "DHAMIKA \"Endless Horizons\"", "slug": "dhamika-endless-horizons", "embed_code": "<div style=\"position:relative;height:0;padding-bottom:75.0%\"><iframe src=\"https://www.youtube.com/embed/cj2g2TrdfzI?ecver=2\" width=\"480\" height=\"360\" frameborder=\"0\" style=\"position:absolute;width:100%;height:100%;left:0\" allowfullscreen></iframe></div>", "free": true, "member_required": false}}, {"model": "videos.video", "pk": 2, "fields": {"created": "2017-03-15T22:22:27.561Z", "modified": "2017-03-17T20:49:03.674Z", "title": "Organic Dreamers - The Timeless Machine [Full Album]", "slug": "organic-dreamers-timeless-machine-full-album", "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/On_DeZFpEbM?ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>", "free": true, "member_required": false}}, {"model": "videos.video", "pk": 3, "fields": {"created": "2017-03-17T20:48:28.957Z", "modified": null, "title": "Psy is in my mind - Lost in Ambient Sounds(ambient/psychill/psybient)", "slug": "psy-my-mind-lost-ambient-soundsambientpsychillpsyb", "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/2Ca_VllbvPM?ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>", "free": true, "member_required": false}}, {"model": "videos.video", "pk": 5, "fields": {"created": "2017-03-17T23:07:50.319Z", "modified": "2017-03-17T23:10:00.775Z", "title": "SUDUAYA \"Venus\" [Full Album]", "slug": "suduaya-venus-full-album", "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/cqLZVHxwfXI?ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>", "free": true, "member_required": false}}, {"model": "videos.video", "pk": 7, "fields": {"created": "2017-03-18T13:06:04.471Z", "modified": null, "title": "PROFONDITA \"Ciel\" FULL ALBUM [ Altar Records ] 2016", "slug": "profondita-ciel-full-album-altar-records-2016", "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/QmaiZgjCCAY?list=RDcqLZVHxwfXI&amp;ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>", "free": true, "member_required": false}}, {"model": "videos.video", "pk": 12, "fields": {"created": "2017-03-18T13:42:56.359Z", "modified": null, "title": "Johnny Blue - Vitamin Sea", "slug": "johnny-blue-vitamin-sea", "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/mUUD-p-nJAE?ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>", "free": true, "member_required": false}}, {"model": "videos.video", "pk": 13, "fields": {"created": "2017-03-18T15:03:02.888Z", "modified": null, "title": "Johnny Blue - (B)rain Dance", "slug": "johnny-blue-brain-dance", "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/pHRAR3Tq4w0?ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>", "free": true, "member_required": false}}, {"model": "videos.video", "pk": 14, "fields": {"created": "2017-03-18T17:01:31.751Z", "modified": "2017-03-19T21:58:23.160Z", "title": "AuroraX Towards Aldebaran (Universo Paralello Festival '14)", "slug": "aurorax-towards-aldebaran-universo-paralello-festival-14", "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/eZ_-QG0Nq0I?ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>", "free": false, "member_required": false}}]
+[
+{
+  "model": "videos.video",
+  "pk": 1,
+  "fields": {
+    "created": "2017-03-15T22:22:27.561Z",
+    "modified": "2017-03-18T15:11:34.271Z",
+    "title": "DHAMIKA \"Endless Horizons\"",
+    "slug": "dhamika-endless-horizons",
+    "embed_code": "<div style=\"position:relative;height:0;padding-bottom:75.0%\"><iframe src=\"https://www.youtube.com/embed/cj2g2TrdfzI?ecver=2\" width=\"480\" height=\"360\" frameborder=\"0\" style=\"position:absolute;width:100%;height:100%;left:0\" allowfullscreen></iframe></div>",
+    "free": true,
+    "member_required": false
+  }
+},
+{
+  "model": "videos.video",
+  "pk": 2,
+  "fields": {
+    "created": "2017-03-15T22:22:27.561Z",
+    "modified": "2017-03-17T20:49:03.674Z",
+    "title": "Organic Dreamers - The Timeless Machine [Full Album]",
+    "slug": "organic-dreamers-timeless-machine-full-album",
+    "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/On_DeZFpEbM?ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>",
+    "free": true,
+    "member_required": false
+  }
+},
+{
+  "model": "videos.video",
+  "pk": 3,
+  "fields": {
+    "created": "2017-03-17T20:48:28.957Z",
+    "modified": null,
+    "title": "Psy is in my mind - Lost in Ambient Sounds(ambient/psychill/psybient)",
+    "slug": "psy-my-mind-lost-ambient-soundsambientpsychillpsyb",
+    "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/2Ca_VllbvPM?ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>",
+    "free": true,
+    "member_required": false
+  }
+},
+{
+  "model": "videos.video",
+  "pk": 5,
+  "fields": {
+    "created": "2017-03-17T23:07:50.319Z",
+    "modified": "2017-03-17T23:10:00.775Z",
+    "title": "SUDUAYA \"Venus\" [Full Album]",
+    "slug": "suduaya-venus-full-album",
+    "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/cqLZVHxwfXI?ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>",
+    "free": true,
+    "member_required": false
+  }
+},
+{
+  "model": "videos.video",
+  "pk": 7,
+  "fields": {
+    "created": "2017-03-18T13:06:04.471Z",
+    "modified": null,
+    "title": "PROFONDITA \"Ciel\" FULL ALBUM [ Altar Records ] 2016",
+    "slug": "profondita-ciel-full-album-altar-records-2016",
+    "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/QmaiZgjCCAY?list=RDcqLZVHxwfXI&amp;ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>",
+    "free": true,
+    "member_required": false
+  }
+},
+{
+  "model": "videos.video",
+  "pk": 12,
+  "fields": {
+    "created": "2017-03-18T13:42:56.359Z",
+    "modified": null,
+    "title": "Johnny Blue - Vitamin Sea",
+    "slug": "johnny-blue-vitamin-sea",
+    "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/mUUD-p-nJAE?ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>",
+    "free": true,
+    "member_required": false
+  }
+},
+{
+  "model": "videos.video",
+  "pk": 13,
+  "fields": {
+    "created": "2017-03-18T15:03:02.888Z",
+    "modified": null,
+    "title": "Johnny Blue - (B)rain Dance",
+    "slug": "johnny-blue-brain-dance",
+    "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/pHRAR3Tq4w0?ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>",
+    "free": true,
+    "member_required": false
+  }
+},
+{
+  "model": "videos.video",
+  "pk": 14,
+  "fields": {
+    "created": "2017-03-18T17:01:31.751Z",
+    "modified": "2017-03-19T21:58:23.160Z",
+    "title": "AuroraX Towards Aldebaran (Universo Paralello Festival '14)",
+    "slug": "aurorax-towards-aldebaran-universo-paralello-festival-14",
+    "embed_code": "<div style=\"position:relative;height:0;padding-bottom:56.21%\"><iframe src=\"https://www.youtube.com/embed/eZ_-QG0Nq0I?ecver=2\" style=\"position:absolute;width:100%;height:100%;left:0\" width=\"641\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe></div>",
+    "free": false,
+    "member_required": false
+  }
+}
+]
