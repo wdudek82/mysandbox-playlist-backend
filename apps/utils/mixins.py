@@ -1,6 +1,15 @@
 from django.contrib.admin.views.decorators import staff_member_required
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.utils.decorators import method_decorator
+
+
+class GetObjectMixin:
+    def get_object(self, queryset=None):
+        slug = self.kwargs.get('slug')
+        instance = self.queryset.filter(slug=slug)
+        if instance:
+            return instance.first()
+        raise Http404
 
 
 class MemberRequiredMixin:

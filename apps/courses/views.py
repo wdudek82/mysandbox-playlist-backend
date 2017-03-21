@@ -1,9 +1,9 @@
 from django.db.models import Q
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
+from apps.utils.mixins import GetObjectMixin, MemberRequiredMixin, StaffMemberRequiredMixin
 from .forms import CourseForm
 from .models import Course
-from apps.utils.mixins import MemberRequiredMixin, StaffMemberRequiredMixin
 
 
 class CourseCreateView(CreateView):
@@ -29,15 +29,15 @@ class CourseListView(ListView):
         return queryset
 
 
-class CourseDetailView(MemberRequiredMixin, DetailView):
+class CourseDetailView(GetObjectMixin, MemberRequiredMixin, DetailView):
     queryset = Course.objects.all()
 
 
-class CourseUpdateView(StaffMemberRequiredMixin, UpdateView):
+class CourseUpdateView(GetObjectMixin, StaffMemberRequiredMixin, UpdateView):
     queryset = Course.objects.all()
     form_class = CourseForm
 
 
-class CourseDeleteView(StaffMemberRequiredMixin, DeleteView):
+class CourseDeleteView(GetObjectMixin, StaffMemberRequiredMixin, DeleteView):
     queryset = Course.objects.all()
     success_url = '/course/'

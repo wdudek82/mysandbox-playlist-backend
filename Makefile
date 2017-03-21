@@ -1,6 +1,8 @@
 usage:
 	@echo "   .: Options :."
 	@echo "   dirs - create project's directories"
+	@echo "   fixtures - creates fixtures for all specified apps"
+	@echo "   load_all_data - loads all fixtures to the database"
 
 dirs:
 	@mkdir assets
@@ -22,7 +24,7 @@ load_all_data:
 	@echo " .: Loading all fixtures :."
 	@echo ""
 	@echo "* courses:"
-	@pipenv run python manage.py loaddata --ignorenonexistent apps/courses/fixtures/courses.fixture.json
+	@pipenv run python manage.py loaddata --ignorenonexistent courses.fixture.json
 	@echo ""
 	@echo "* videos:" 
-	@pipenv run python manage.py loaddata --ignorenonexistent apps/videos/fixtures/videos.fixture.json 
+	@pipenv run python manage.py loaddata --ignorenonexistent videos.fixture.json 

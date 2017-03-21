@@ -1,9 +1,10 @@
+from behaviors.behaviors import Timestamped
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
-from django.utils.text import slugify
-from behaviors.behaviors import Timestamped
+
+from apps.utils.create_unique_slug import create_unique_slug
 
 
 class Video(Timestamped):
@@ -24,4 +25,4 @@ class Video(Timestamped):
 @receiver(signal=pre_save, sender=Video)
 def pre_save_video_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
-        instance.slug = slugify(instance.title)
+        instance.slug = create_unique_slug(instance)

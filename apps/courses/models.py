@@ -1,11 +1,11 @@
+from behaviors.behaviors import Timestamped
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
-from django.utils.text import slugify
 
-from behaviors.behaviors import Timestamped
+from apps.utils.create_unique_slug import create_unique_slug
 
 
 class Course(Timestamped):
@@ -25,4 +25,4 @@ class Course(Timestamped):
 @receiver(signal=pre_save, sender=Course)
 def pre_save_course_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
-        instance.slug = slugify(instance.title)
+        instance.slug = create_unique_slug(instance)
