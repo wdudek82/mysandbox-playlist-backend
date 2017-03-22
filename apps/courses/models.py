@@ -24,5 +24,6 @@ class Course(Timestamped):
 
 @receiver(signal=pre_save, sender=Course)
 def pre_save_course_receiver(sender, instance, *args, **kwargs):
-    if not instance.slug:
+    queryset = Course.objects.filter(slug=instance.slug)
+    if not instance.slug or queryset.count() > 1:
         instance.slug = create_unique_slug(instance)
