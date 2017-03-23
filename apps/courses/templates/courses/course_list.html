@@ -19,6 +19,8 @@
                     <p>{{ course.description }}</p>
                     <p>
                         <a href="{% url 'course:detail' course.slug %}" class="btn btn-default btn-xs">View</a>
+                        <a href="{% url 'course:update' course.slug %}" class="btn btn-default btn-xs">Update</a>
+                        <a href="{% url 'course:delete' course.slug %}" class="btn btn-danger btn-xs">Delete</a>
                     </p>
                 </div>
             {% empty %}

@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}
+    {{ block.super }} | Delete
+{% endblock title %}
+
+{% block header %}
+    Delete Course
+{% endblock header %}
+
+{% block content %}
+    <form method="POST" action=".">
+        {% csrf_token %}
+        <p>Are you sure you want to delete course <b>{{ course.title }}</b>?</p>
+        <input type="submit" value="Yes" class="btn btn-danger btn-xs">
+        <a href="{% url 'course:detail' course.slug %}" class="btn btn-default btn-xs">Cancel</a>
+    </form>
+{% endblock content %}
