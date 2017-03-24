@@ -17,6 +17,7 @@
                 <div class="col-xs-4">
                     <h2>{{ course.id }}. {{ course.title }}</h2>
                     <p>{{ course.description }}</p>
+                    <p><small>{{ course.lecture_set.count }} lectures</small></p>
                     <p>
                         <a href="{% url 'course:detail' course.slug %}" class="btn btn-default btn-xs">View</a>
                         <a href="{% url 'course:update' course.slug %}" class="btn btn-default btn-xs">Update</a>
