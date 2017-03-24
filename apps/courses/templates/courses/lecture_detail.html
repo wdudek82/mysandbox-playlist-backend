@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ block.super }} | Detail
+{% endblock title %}
+
+{% block header %}
+    Lecture {{ lecture.id }}: {{ lecture.title }}
+{% endblock header %}
+
+{% block content %}
+    <p>{{ lecture.description }}</p>
+    <div style="max-width: 500px;">{{ lecture.video.embed_code|safe }}</div>
+{% endblock content %}

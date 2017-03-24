@@ -48,7 +48,11 @@ class Lecture(Timestamped):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('lecture:detail', kwargs={'slug': self.slug})
+        return reverse('course:lecture_detail',
+                       kwargs={
+                           'cslug': self.course.slug,
+                           'lslug': self.slug
+                       })
 
 
 @receiver(signal=pre_save, sender=Course)

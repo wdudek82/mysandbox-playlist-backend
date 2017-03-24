@@ -16,6 +16,15 @@
     <p>{{ course.changed }}</p>
     <p>{{ course.modified }}</p>
     <p><a href="{% url 'course:list' %}" class="btn btn-default btn-xs">Home</a></p>
-{#    <p><a href="{% url 'course:update' %}" class="btn btn-warning btn-xs">Home</a></p>#}
-{#    <p><a href="{% url 'course:delete' %}" class="btn btn-danger btn-xs">Home</a></p>#}
+    <p><a href="{% url 'course:update' course.slug %}" class="btn btn-warning btn-xs">Update</a></p>
+    <p><a href="{% url 'course:delete' course.slug %}" class="btn btn-danger btn-xs">Delete</a></p>
+
+    <div>
+        <h3>Lecture</h3>
+        {% for lecture in course.lecture_set.all %}
+            <p>{{ forloop.counter }}. <a href="{% url 'course:lecture_detail' course.slug lecture.slug %}">{{ lecture.title }}</a></p>
+        {% empty %}
+            No lectures found
+        {% endfor %}
+    </div>
 {% endblock content %}

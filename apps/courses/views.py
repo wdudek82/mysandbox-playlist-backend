@@ -1,9 +1,10 @@
+from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
 from apps.utils.mixins import GetObjectMixin, MemberRequiredMixin, StaffMemberRequiredMixin
 from .forms import CourseForm
-from .models import Course
+from .models import Course, Lecture
 
 
 class CourseCreateView(CreateView):
@@ -41,3 +42,17 @@ class CourseUpdateView(GetObjectMixin, StaffMemberRequiredMixin, UpdateView):
 class CourseDeleteView(GetObjectMixin, StaffMemberRequiredMixin, DeleteView):
     queryset = Course.objects.all()
     success_url = '/course/'
+
+
+class LectureDetailView(MemberRequiredMixin, DetailView):
+    def get_object(self):
+        course_slug = self.kwargs.get('cslug')
+        lecture_slug = self.kwargs.get('lslug')
+        instance = get_object_or_404(Lecture, course__slug=course_slug, slug=lecture_slug)
+        return instance
+
+    # How to get context from generic class based view
+    # def get_context_data(self, **kwargs):
+    #     context = super(LectureDetailView, self).get_context_data()
+    #     print(context)
+    #     return context
