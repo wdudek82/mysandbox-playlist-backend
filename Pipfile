@@ -4,10 +4,12 @@ verify_ssl = true
 
 [dev-packages]
 django-debug-toolbar = "*"
+django-xadmin = "*"
 
 [packages]
 ipython = "*"
 django-behaviors = "*"
 pdir2 = "*"
 pytz = "*"
+django-grappelli = "*"
 Django = "*"

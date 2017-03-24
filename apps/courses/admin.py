@@ -6,6 +6,7 @@ class LectureInline(admin.TabularInline):
     model = Lecture
     extra = 1
     exclude = ('created', 'modified')
+    prepopulated_fields = {'slug': ('title',)}
 
 
 # TODO: same as in models - maybe better would be to use abstract class to reduce code repetition

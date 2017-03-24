@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "367f4b1768ff5d96c93e875abbbbaf52cfa14a5d00154ed567e9852e723ef9ec"
+            "sha256": "366d85cd5ced08575898e3793e0893f576f33f02d837d2afffeca5c22b3a4e38"
         },
         "requires": {},
         "sources": [
@@ -43,6 +43,10 @@
         "django-behaviors": {
             "hash": "sha256:9d95810d6b01cc32e441895e7f0b962947bd61b547f0271144d1c2871ee51c61",
             "version": "==0.3.0"
+        },
+        "django-grappelli": {
+            "hash": "sha256:46a9b5a49ac746a70f902e0407456ecc102f9446f4bd5eed4de800275eef2520",
+            "version": "==2.9.1"
         },
         "enum34": {
             "hash": "sha256:644837f692e5f550741432dd3f223bbb9852018674981b1664e5dc339387588a",
@@ -118,9 +122,37 @@
             "hash": "sha256:2cfb83859bfaa10e2bd586340bead27c69fdcaa21fa683a008cc712482c26726",
             "version": "==1.10.6"
         },
+        "appdirs": {
+            "hash": "sha256:d8b24664561d0d34ddfaec54636d502d7cea6e29c3eaf68f3df6180863e2166e",
+            "version": "==1.4.3"
+        },
+        "django-crispy-forms": {
+            "hash": "sha256:18e904c7bd55c45201739cb343272767ff820263a1fca40a7b388006ce94910c",
+            "version": "==1.6.1"
+        },
         "django-debug-toolbar": {
             "hash": "sha256:bd929113ae22d7553c3ae6a6cb6762e8453784972eca06fa396aca47d0b66874",
             "version": "==1.7"
+        },
+        "django-xadmin": {
+            "hash": "sha256:25da1610a6d56c9b3c15d7ace4827137cb011b8fb604839326368b7ce57293c1",
+            "version": "==0.5.0"
+        },
+        "packaging": {
+            "hash": "sha256:99276dc6e3a7851f32027a68f1095cd3f77c148091b092ea867a351811cfe388",
+            "version": "==16.8"
+        },
+        "pyparsing": {
+            "hash": "sha256:fee43f17a9c4087e7ed1605bd6df994c6173c1e977d7ade7b651292fab2bd010",
+            "version": "==2.2.0"
+        },
+        "setuptools": {
+            "hash": "sha256:6483f8412313ec787fa71379147a4605d3b1cc303c3648d02542a9160d3db72b",
+            "version": "==34.3.2"
+        },
+        "six": {
+            "hash": "sha256:0ff78c403d9bccf5a425a6d31a12aa6b47f1c21ca4dc2573a7e2f32a97335eb1",
+            "version": "==1.10.0"
         },
         "sqlparse": {
             "hash": "sha256:740a023ef38ce11bbb99a9d143856f56ef4ec5b0d7a853f58c02c65b035114c4",

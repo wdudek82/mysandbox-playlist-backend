@@ -41,6 +41,9 @@ class Lecture(Timestamped):
     slug = models.SlugField(blank=True, help_text='Some help text for slug field')
     description = models.TextField(null=True, blank=True)
 
+    class Meta:
+        unique_together = (('slug', 'course'),)
+
     def __str__(self):
         return self.title
 

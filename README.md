@@ -15,9 +15,10 @@
 8. loading fixtures: pipenv run python manage.py loaddata
 
 ### additional static files
-8. cd assets/static
-9. bower install
+(bower is required to do that so try: npm install -g bower)
+9. make fetch_bower_components
 
+10. django-grappelli styles may not show correctly - in such case: ./manage collectstatic
 
 ## Project's roadmap
 1. Videos

@@ -3,6 +3,7 @@ usage:
 	@echo "   dirs - create project's directories"
 	@echo "   fixtures - creates fixtures for all specified apps"
 	@echo "   load_all_data - loads all fixtures to the database"
+	@echo "   fetch_bower_components - download packages specified in assets/static/bower.json"
 
 dirs:
 	@mkdir assets
@@ -28,3 +29,6 @@ load_all_data:
 	@echo ""
 	@echo "* videos:" 
 	@pipenv run python manage.py loaddata --ignorenonexistent videos.fixture.json 
+
+fetch_bower_components:
+	@cd assets/static && bower install
