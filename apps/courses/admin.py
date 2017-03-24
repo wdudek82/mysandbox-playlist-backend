@@ -11,7 +11,7 @@ class LectureInline(admin.TabularInline):
 # TODO: same as in models - maybe better would be to use abstract class to reduce code repetition
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'title', 'slug', 'description', 'price', 'created', 'changed', 'modified']
+    list_display = ['id', 'user', 'title', 'slug', 'description', 'is_new', 'price', 'created', 'changed', 'modified']
     readonly_fields = ['created', 'modified']
     list_display_link = ['title']
     list_filter = ['user', 'price', 'created', 'modified']

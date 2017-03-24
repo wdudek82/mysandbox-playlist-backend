@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+import pytz
 from behaviors.behaviors import Timestamped
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
@@ -21,6 +23,13 @@ class Course(Timestamped):
 
     def get_absolute_url(self):
         return reverse('course:detail', kwargs={'slug': self.slug})
+
+    @property
+    def is_new(self):
+        now = datetime.now(pytz.utc)
+        is_current = self.created <= now
+        is_recent = self.created >= now - timedelta(days=5)
+        return True if is_current and is_recent else False
 
 
 # TODO: I guess it's too much repetition - I'll try to use abstract class for videos, courses, and lectured
