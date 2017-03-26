@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Course, Lecture
+from django.utils.html import mark_safe
+from .models import Course, Lecture, MyCourses
 from .forms import LectureAdminForm
 
 
@@ -27,6 +28,18 @@ class CourseAdmin(admin.ModelAdmin):
         LectureInline,
     ]
 
+
+@admin.register(MyCourses)
+class MyCourses(admin.ModelAdmin):
+    list_display = ['id', 'user', 'get_courses', 'created', 'modified', 'changed']
+    list_display_links = ['user']
+    exclude = ['modified']
+    filter_horizontal = ['courses']
+
+    def get_courses(self, instance):
+        courses = instance.courses.all()
+        return mark_safe('<br>'.join([course.title for course in courses])) if courses else '-'
+    get_courses.short_description = 'courses'
 
 @admin.register(Lecture)
 class LectureAdmin(admin.ModelAdmin):

@@ -27,6 +27,7 @@
         - membership, owner, anyone
         
 2. Courses / Series
+    - price [DONE]
     - owned courses -- one click buy
 
 3. Categories / Tags

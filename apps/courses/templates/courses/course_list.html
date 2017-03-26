@@ -18,8 +18,14 @@
                 <div class="col-xs-4">
                     <h2>{{ course.order }}. {{ course.title }}</h2>
                     <p>
-                        <small>{{ course.lecture_set.count }} lectures</small> | Price:
-                        {% money_localize course.price off %}
+                        <small>{{ course.lecture_set.count }} lectures</small> |
+                        {% if course in request.user.mycourses.courses.all %}
+                           <b>owned</b>
+                        {% else %}
+                            Price: {% money_localize course.price off %}
+                            <button class="btn btn-info btn-xs">Buy</button>
+                        {% endif %}
+                    </p>
                     <p>
                         <a href="{% url 'course:detail' course.slug %}" class="btn btn-default btn-xs">View</a>
                         <a href="{% url 'course:update' course.slug %}" class="btn btn-default btn-xs">Update</a>

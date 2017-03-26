@@ -12,7 +12,7 @@ from django.dispatch import receiver
 from djmoney.models.fields import MoneyField
 
 from apps.utils.create_unique_slug import create_unique_slug
-from apps.utils.fields import PositionField
+from apps.utils.position_field import PositionField
 from apps.videos.models import Video
 
 
@@ -39,13 +39,28 @@ class Course(Timestamped):
     def get_absolute_url(self):
         return reverse('course:detail', kwargs={'slug': self.slug})
 
-
-    @property
     def is_new(self):
         now = datetime.now(pytz.utc)
         is_current = self.created <= now
         is_recent = self.created >= now - timedelta(days=5)
         return True if is_current and is_recent else False
+
+
+class MyCourses(Timestamped):
+    user = models.OneToOneField(User)
+    courses = models.ManyToManyField(Course, blank=True)
+
+    class Meta:
+        verbose_name_plural = 'My Courses'
+
+    def __str__(self):
+        return str(self.courses.all().count())
+
+
+@receiver(pre_save, sender=User)
+def post_save_user_create(sender, instance, created, *args, **kwargs):
+    if created:
+        MyCourses.objects.get_or_create(user=instance)
 
 
 # TODO: I guess it's too much repetition - I'll try to use abstract class for videos, courses, and lectured
