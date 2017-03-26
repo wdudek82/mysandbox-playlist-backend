@@ -15,12 +15,14 @@ class LectureInline(admin.TabularInline):
 # TODO: same as in models - maybe better would be to use abstract class to reduce code repetition
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'slug', 'description', 'user', 'is_new', 'price', 'created', 'changed', 'modified']
+    list_display = ['id', 'title', 'slug', 'order', 'category', 'description', 'user', 'is_new', 'price',
+                    'created', 'changed', 'modified']
     list_display_links = ['title']
-    readonly_fields = ['created', 'modified']
+    list_editable = ['order', 'category']
     list_filter = ['user', 'price', 'created', 'modified']
     search_fields = ['title', 'description']
     prepopulated_fields = {'slug': ('title',)}
+    readonly_fields = ['created', 'modified']
     inlines = [
         LectureInline,
     ]
@@ -29,9 +31,9 @@ class CourseAdmin(admin.ModelAdmin):
 @admin.register(Lecture)
 class LectureAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'slug', 'order', 'description', 'course', 'video',  'created', 'modified', 'changed']
-    readonly_fields = ['created', 'modified']
     list_display_links = ['title']
     list_filter = ['course', 'video', 'created', 'modified']
     search_fields = ['title', 'description']
     prepopulated_fields = {'slug': ('title',)}
+    readonly_fields = ['created', 'modified']
     form = LectureAdminForm

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Third party
     'behaviors.apps.BehaviorsConfig',
     'debug_toolbar',
+    'djmoney',
 
     # Project's apps
     'apps.courses',

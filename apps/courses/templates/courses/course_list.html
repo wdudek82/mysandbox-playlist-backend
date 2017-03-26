@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-
+{% load djmoney %}
+{% money_localize money %}
 
 {% block title %}{{ block.super }} | Courses{% endblock title %}
 
@@ -12,12 +13,13 @@
     <div class="container">
         {% include 'courses/snippets/course_search_form.html' with request=request %}
 
-        <div class="row">
+        <DIV class="row">
             {% for course in course_list %}
                 <div class="col-xs-4">
-                    <h2>{{ course.id }}. {{ course.title }}</h2>
-                    <p>{{ course.description }}</p>
-                    <p><small>{{ course.lecture_set.count }} lectures</small></p>
+                    <h2>{{ course.order }}. {{ course.title }}</h2>
+                    <p>
+                        <small>{{ course.lecture_set.count }} lectures</small> | Price:
+                        {% money_localize course.price off %}
                     <p>
                         <a href="{% url 'course:detail' course.slug %}" class="btn btn-default btn-xs">View</a>
                         <a href="{% url 'course:update' course.slug %}" class="btn btn-default btn-xs">Update</a>
@@ -27,6 +29,6 @@
             {% empty %}
                 <div class="col-xs-4">No videos found!</div>
             {% endfor %}
-        </div>
-    </div>
+        </DIV>
+    </DIV>
 {% endblock content %}

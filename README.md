@@ -27,6 +27,7 @@
         - membership, owner, anyone
         
 2. Courses / Series
+    - owned courses -- one click buy
 
 3. Categories / Tags
     - List, View, Create, Delete

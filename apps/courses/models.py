@@ -1,4 +1,6 @@
 from datetime import datetime, timedelta
+import moneyed
+
 import pytz
 from behaviors.behaviors import Timestamped
 from django.contrib.auth.models import User
@@ -7,24 +9,36 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 
-from apps.utils.fields import PositionField
+from djmoney.models.fields import MoneyField
 
-from apps.videos.models import Video
 from apps.utils.create_unique_slug import create_unique_slug
+from apps.utils.fields import PositionField
+from apps.videos.models import Video
 
 
 class Course(Timestamped):
+    POSITION = (
+        ('main', 'main'),
+        ('secondary', 'secondary'),
+    )
+
     user = models.ForeignKey(User)
     title = models.CharField(max_length=255)
     slug = models.SlugField(blank=True)
+    order = PositionField(collection='category')
+    category = models.CharField(max_length=9, choices=POSITION, default='main')
     description = models.TextField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = MoneyField(max_digits=10, decimal_places=2, default_currency='EUR')
+
+    class Meta:
+        ordering = ['category', 'order', 'title']
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse('course:detail', kwargs={'slug': self.slug})
+
 
     @property
     def is_new(self):
