@@ -36,7 +36,9 @@ class Course(Timestamped):
 # TODO: create app abstrac_classes (?)
 class Lecture(Timestamped):
     course = models.ForeignKey(Course, null=True, blank=True, on_delete=models.SET_NULL)
-    video = models.ForeignKey(Video, null=True, blank=True, on_delete=models.SET_NULL)
+    video = models.ForeignKey(Video, null=True, blank=True, on_delete=models.SET_NULL,
+                              # limit_choices_to={'lecture__isnull': True}
+                              )
     title = models.CharField(max_length=255)
     slug = models.SlugField(blank=True, help_text='Some help text for slug field')
     description = models.TextField(null=True, blank=True)
