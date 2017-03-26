@@ -28,7 +28,7 @@ class CourseAdmin(admin.ModelAdmin):
 
 @admin.register(Lecture)
 class LectureAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'slug', 'description', 'course', 'video',  'created', 'modified', 'changed']
+    list_display = ['id', 'title', 'slug', 'order', 'description', 'course', 'video',  'created', 'modified', 'changed']
     readonly_fields = ['created', 'modified']
     list_display_links = ['title']
     list_filter = ['course', 'video', 'created', 'modified']

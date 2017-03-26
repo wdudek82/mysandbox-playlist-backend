@@ -5,7 +5,7 @@ from .models import Course, Lecture, Video
 class LectureAdminForm(forms.ModelForm):
     class Meta:
         model = Lecture
-        fields = ['title', 'slug', 'video', 'description']
+        fields = ['order', 'title', 'slug', 'video', 'description']
 
     def __init__(self, *args, **kwargs):
         super(LectureAdminForm, self).__init__(*args, **kwargs)

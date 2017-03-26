@@ -23,7 +23,8 @@
         <h3>Lecture</h3>
         {% for lecture in course.lecture_set.all %}
             <p>
-                {{ forloop.counter }}.
+{#                {{ forloop.counter }}.#}
+                {{ lecture.order }}
                 <a href="{% url 'course:lecture_detail' course.slug lecture.slug %}">{{ lecture.title }}</a>
             </p>
         {% empty %}

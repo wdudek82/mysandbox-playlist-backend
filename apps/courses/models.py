@@ -7,6 +7,8 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 
+from apps.utils.fields import PositionField
+
 from apps.videos.models import Video
 from apps.utils.create_unique_slug import create_unique_slug
 
@@ -36,15 +38,16 @@ class Course(Timestamped):
 # TODO: create app abstrac_classes (?)
 class Lecture(Timestamped):
     course = models.ForeignKey(Course, null=True, blank=True, on_delete=models.SET_NULL)
-    video = models.ForeignKey(Video, null=True, blank=True, on_delete=models.SET_NULL,
-                              # limit_choices_to={'lecture__isnull': True}
-                              )
+    video = models.ForeignKey(Video, null=True, blank=True, on_delete=models.SET_NULL)  # limit_choices_to={'lecture__isnull': True}
+
     title = models.CharField(max_length=255)
     slug = models.SlugField(blank=True, help_text='Some help text for slug field')
+    order = PositionField(collection='course')
     description = models.TextField(null=True, blank=True)
 
     class Meta:
         unique_together = (('slug', 'course'),)
+        ordering = ['order', 'title']
 
     def __str__(self):
         return self.title
