@@ -6,7 +6,7 @@ from behaviors.behaviors import Timestamped
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.db import models
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 
 from djmoney.models.fields import MoneyField
@@ -57,10 +57,11 @@ class MyCourses(Timestamped):
         return str(self.courses.all().count())
 
 
-@receiver(pre_save, sender=User)
+@receiver(post_save, sender=User)
 def post_save_user_create(sender, instance, created, *args, **kwargs):
     if created:
         MyCourses.objects.get_or_create(user=instance)
+# post_save.connect(post_save_user_create, sender=User)
 
 
 # TODO: I guess it's too much repetition - I'll try to use abstract class for videos, courses, and lectured

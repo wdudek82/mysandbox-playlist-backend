@@ -4,7 +4,7 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 
 from apps.utils.mixins import GetObjectMixin, MemberRequiredMixin, StaffMemberRequiredMixin
 from .forms import CourseForm
-from .models import Course, Lecture
+from .models import Course, Lecture, MyCourses
 
 
 class CourseCreateView(CreateView):
@@ -24,9 +24,18 @@ class CourseListView(ListView):
     def get_queryset(self):
         queryset = Course.objects.all()
         searched_course = self.request.GET.get('q')
+        user = self.request.user
         if searched_course:
             queryset = queryset.filter(
                 Q(title__icontains=searched_course) | Q(description__icontains=searched_course))
+        if user.is_authenticated():
+            queryset = queryset.prefetch_related(
+                Prefetch('owned_by',
+                         queryset=MyCourses.objects.filter(user=user),
+                         to_attr='is_owner')
+            )
+            print(queryset[0].__dict__)
+
         return queryset
 
 

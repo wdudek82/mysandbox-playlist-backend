@@ -13,28 +13,22 @@
     <div class="container">
         {% include 'courses/snippets/course_search_form.html' with request=request %}
 
-        <DIV class="row">
-            {% for course in course_list %}
-                <div class="col-xs-4">
-                    <h2>{{ course.order }}. {{ course.title }}</h2>
-                    <p>
-                        <small>{{ course.lecture_set.count }} lectures</small> |
-                        {% if course in request.user.mycourses.courses.all %}
-                           <b>owned</b>
-                        {% else %}
-                            Price: {% money_localize course.price off %}
-                            <button class="btn btn-info btn-xs">Buy</button>
-                        {% endif %}
-                    </p>
-                    <p>
-                        <a href="{% url 'course:detail' course.slug %}" class="btn btn-default btn-xs">View</a>
-                        <a href="{% url 'course:update' course.slug %}" class="btn btn-default btn-xs">Update</a>
-                        <a href="{% url 'course:delete' course.slug %}" class="btn btn-danger btn-xs">Delete</a>
-                    </p>
-                </div>
+        <div class="row">
+            <div class="col-xs-4">
+            {% for course in course_list %}<br>
+                    {{ forloop.counter }}.
+                    <a href="{% url 'course:detail' course.slug %}">{{ course.title }}</a>
+                    <small>{{ course.lecture_set.count }} lectures</small> |
+                    {% if course.is_owner %}
+                       <b>owned</b>
+                    {% else %}
+                        Price: {% money_localize course.price off %}
+                        <button class="btn btn-info btn-xs">Buy</button>
+                    {% endif %}
             {% empty %}
                 <div class="col-xs-4">No videos found!</div>
             {% endfor %}
-        </DIV>
-    </DIV>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
