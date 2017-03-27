@@ -48,7 +48,7 @@ class Course(Timestamped):
 
 class MyCourses(Timestamped):
     user = models.OneToOneField(User)
-    courses = models.ManyToManyField(Course, blank=True, related_name='owned_courses')
+    courses = models.ManyToManyField(Course, blank=True, related_name='owned_by')
 
     class Meta:
         verbose_name_plural = 'My Courses'
