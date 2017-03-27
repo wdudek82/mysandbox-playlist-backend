@@ -1,10 +1,10 @@
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, Http404
 from django.db.models import Prefetch, Q
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
 from apps.utils.mixins import GetObjectMixin, MemberRequiredMixin, StaffMemberRequiredMixin
 from .forms import CourseForm
-from .models import Course, Lecture, MyCourses
+from .models import Course, Lecture
 
 
 class CourseCreateView(CreateView):
@@ -33,16 +33,28 @@ class CourseListView(ListView):
         return queryset
 
 
-class CourseDetailView(GetObjectMixin, MemberRequiredMixin, DetailView):
-    queryset = Course.objects.all()
+class CourseDetailView(MemberRequiredMixin, DetailView):
+    def get_object(self, queryset=None):
+        slug = self.kwargs.get('slug')
+        instance = Course.objects.filter(slug=slug).owned(self.request.user)
+        if instance:
+            return instance.first()
+        raise Http404
 
 
-class CourseUpdateView(GetObjectMixin, StaffMemberRequiredMixin, UpdateView):
+class CourseUpdateView(StaffMemberRequiredMixin, UpdateView):
     queryset = Course.objects.all()
     form_class = CourseForm
 
+    # def get_object(self, queryset=None):
+    #     slug = self.kwargs.get('slug')
+    #     instance = Course.objects.filter(slug=slug)
+    #     if instance:
+    #         return instance.first()
+    #     raise Http404
 
-class CourseDeleteView(GetObjectMixin, StaffMemberRequiredMixin, DeleteView):
+
+class CourseDeleteView(StaffMemberRequiredMixin, DeleteView):
     queryset = Course.objects.all()
     success_url = '/course/'
 
