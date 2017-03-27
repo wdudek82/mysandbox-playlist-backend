@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from django.db.models import Q
+from django.db.models import Prefetch, Q
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
 from apps.utils.mixins import GetObjectMixin, MemberRequiredMixin, StaffMemberRequiredMixin
