@@ -29,11 +29,7 @@ class CourseListView(ListView):
             queryset = queryset.filter(
                 Q(title__icontains=searched_course) | Q(description__icontains=searched_course))
         if user.is_authenticated():
-            queryset = queryset.prefetch_related(
-                Prefetch('owned_by',
-                         queryset=MyCourses.objects.filter(user=user),
-                         to_attr='is_owner')
-            )
+            queryset = queryset.owned(user)
         return queryset
 
 

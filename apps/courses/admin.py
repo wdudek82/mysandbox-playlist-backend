@@ -17,10 +17,10 @@ class LectureInline(admin.TabularInline):
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'slug', 'order', 'category', 'description', 'user', 'is_new', 'price',
-                    'created', 'changed', 'modified']
+                    'active', 'created', 'changed', 'modified']
     list_display_links = ['title']
-    list_editable = ['order', 'category']
-    list_filter = ['user', 'price', 'created', 'modified']
+    list_editable = ['order', 'category', 'active']
+    list_filter = ['user', 'price', 'active', 'created', 'modified']
     search_fields = ['title', 'description']
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ['created', 'modified']

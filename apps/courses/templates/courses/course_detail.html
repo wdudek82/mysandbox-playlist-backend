@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
+{% load djmoney %}
+{% money_localize money %}
+
 {% block title %}
     {{ block.super }} | Detail
 {% endblock title %}
@@ -9,10 +12,13 @@
 {% endblock header %}
 
 {% block content %}
-    <p>{{ course.user }}</p>
     <p>{{ course.title }}</p>
     <p>{{ course.description }}</p>
-    <p>{{ course.created }}</p>
+    {% if course.is_owner %}
+        Owned
+    {% else %}
+        {% money_localize course.price off %}
+    {% endif %}
     <p>
         <a href="{% url 'course:list' %}" class="btn btn-default btn-xs">Home</a>
         <a href="{% url 'course:update' course.slug %}" class="btn btn-warning btn-xs">Update</a>

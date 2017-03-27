@@ -1,11 +1,11 @@
 from datetime import datetime, timedelta
-import moneyed
 
 import pytz
 from behaviors.behaviors import Timestamped
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.db import models
+from django.db.models import Prefetch
 from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 
@@ -20,10 +20,23 @@ class CourseQuerySet(models.query.QuerySet):
     def active(self):
         return self.filter(active=True)
 
+    def owned(self, user):
+        return self.prefetch_related(
+            Prefetch('owned_by',
+                     queryset=MyCourses.objects.filter(user=user),
+                     to_attr='is_owner'
+            )
+        )
+
+
 class CourseManager(models.Manager):
+    def get_queryset(self):
+        return CourseQuerySet(self.model, using=self._db)
+
     def all(self):
-        return self.get_queryset().all()
+        return self.get_queryset().all().active()
         # return super(CourseManager, self).all()
+
 
 
 class Course(Timestamped):
