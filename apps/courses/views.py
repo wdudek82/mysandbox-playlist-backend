@@ -34,8 +34,6 @@ class CourseListView(ListView):
                          queryset=MyCourses.objects.filter(user=user),
                          to_attr='is_owner')
             )
-            print(queryset[0].__dict__)
-
         return queryset
 
 

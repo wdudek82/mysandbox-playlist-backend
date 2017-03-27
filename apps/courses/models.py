@@ -16,6 +16,16 @@ from apps.utils.position_field import PositionField
 from apps.videos.models import Video
 
 
+class CourseQuerySet(models.query.QuerySet):
+    def active(self):
+        return self.filter(active=True)
+
+class CourseManager(models.Manager):
+    def all(self):
+        return self.get_queryset().all()
+        # return super(CourseManager, self).all()
+
+
 class Course(Timestamped):
     POSITION = (
         ('main', 'main'),
@@ -29,6 +39,9 @@ class Course(Timestamped):
     category = models.CharField(max_length=9, choices=POSITION, default='main')
     description = models.TextField()
     price = MoneyField(max_digits=10, decimal_places=2, default_currency='EUR')
+    active = models.BooleanField(default=True)
+
+    objects = CourseManager()
 
     class Meta:
         ordering = ['category', 'order', 'title']
