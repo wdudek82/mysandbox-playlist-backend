@@ -24,7 +24,7 @@
                        <b>owned</b>
                     {% else %}
                         Price: {% money_localize course.price off %}
-                        <button class="btn btn-info btn-xs">Buy</button>
+                        <a href="{% url 'course:purchase' course.slug %}" class="btn btn-info btn-xs">Buy</a>
                     {% endif %}
             {% empty %}
                 <div class="col-xs-4">No videos found!</div>

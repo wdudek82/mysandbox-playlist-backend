@@ -14,7 +14,6 @@ class GetObjectMixin:
 
 class MemberRequiredMixin:
     def dispatch(self, request, *args, **kwargs):
-        print('requireing..?')
         instance = self.get_object()
         user = request.user
         if user.is_staff:
